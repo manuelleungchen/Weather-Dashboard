@@ -16,7 +16,7 @@
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href=""> -->
+    <link rel="stylesheet" href="./assets/CSS/style.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -26,51 +26,104 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-dark bg-dark">
-            <h1 class="navbar-brand">Weather Dashboard</h1>
-        </nav>
+    <header class="bg-dark">
+        <!-- <nav class="navbar navbar-dark bg-dark"> -->
+        <h1>Weather Dashboard</h1>
+        <!-- </nav> -->
     </header>
 
     <main class="container">
         <div class="row">
-            <aside class="col-4">
-                <input type="text" list="datalist" placeholder="Search for a city">
-                <datalist id="datalist"></datalist>
-
-                <h3>Search History</h3>
-                <ul>
-                    <li>Toronto</li>
-                    <li>chicago</li>
-                    <li>montreal</li>
-                </ul>
-            </aside>
-            <article class="col-8">
-                <div class="row">
-                    <section class="col-12">
-                        <h2>Toronto (Date) icon</h2>
-                        <p>Temperature</p>
-                        <p>Humidity</p>
-                        <p>Wind Speed</p>
-                        <p>Feels Like</p>
-                        <p>UV Index</p>
-
-
+            <div class="col-3">
+                <aside>
+                    <div id="search">
+                        <input type="text" list="datalist" placeholder="Search for City">
+                        <datalist id="datalist"></datalist>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            Cities History
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Toronto</li>
+                            <li class="list-group-item">chicago</li>
+                            <li class="list-group-item">montreal</li>
+                            <li class="list-group-item">Toronto</li>
+                            <li class="list-group-item">chicago</li>
+                            <li class="list-group-item">montreal</li>
+                            <li class="list-group-item">Toronto</li>
+                            <li class="list-group-item">chicago</li>
+                            <li class="list-group-item">montreal</li>
+                            <li class="list-group-item">Toronto</li>
+                            <li class="list-group-item">chicago</li>
+                            <li class="list-group-item">montreal</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-9">
+                <article>
+                    <section class="row" id="today-weather-section">
+                        <div class="col-6">
+                            <h2>Toronto (Date)</h2>
+                            <img src="http://openweathermap.org/img/wn/09d@4x.png" id="today-weather-img" alt="...">
+                        </div>
+                        <div class="col-6" id="weather-details">
+                            <h5>Temperature: 20C </h5>
+                            <h5>Humidity: 393 </h5>
+                            <h5>Wind Speed: 100 KM/h</h5>
+                            <h5>UV Index: 93k</h5>
+                        </div>
                     </section>
-                    <section class="col-12">
-                        <h2>Forecast</h2>
-                        <div class="row">
-                            <div class="col-2">Monday</div>
-                            <div class="col-2">Monday</div>
-                            <div class="col-2">Monday</div>
-                            <div class="col-2">Monday</div>
-                            <div class="col-2">Monday</div>
 
+                    <section class="row justify-content-center">
+                        <div class="col-12">
+                            <h2 id="forecast-header">Forecast</h2>
+                        </div>
+                        <div class="card col-2">
+                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
+                            <div>
+                                <h5 class="card-title">Monday</h5>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Humidity</p>
+                            </div>
+                        </div>
+                        <div class="card col-2">
+                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
+                            <div>
+                                <h5 class="card-title">Monday</h5>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Humidity</p>
+                            </div>
+                        </div>
+                        <div class="card col-2">
+                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
+                            <div>
+                                <h5 class="card-title">Monday</h5>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Humidity</p>
+                            </div>
+                        </div>
+                        <div class="card col-2">
+                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
+                            <div>
+                                <h5 class="card-title">Monday</h5>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Humidity</p>
+                            </div>
+                        </div>
+                        <div class="card col-2">
+                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
+                            <div>
+                                <h5 class="card-title">Monday</h5>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Humidity</p>
+                            </div>
                         </div>
 
                     </section>
-                </div>
-            </article>
+                </article>
+            </div>
         </div>
     </main>
 
@@ -88,6 +141,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+
+    <script src="./assets/JS/script.js"></script>
 
 
 </body>

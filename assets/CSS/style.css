@@ -1,0 +1,59 @@
+/* Style all elements on the page to include margin, padding with content width  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    background-color: lightcyan;
+}
+.container {
+    margin-top: 20px;
+}
+
+aside {
+    background-color: lightsteelblue;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 15px;
+}
+
+article {
+    background-color: lightblue;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 15px;
+}
+
+section {
+    padding: 20px;
+}
+
+header {
+    font-size: 50px;
+    padding: 20px;
+    color: aliceblue;
+    text-align: center;
+}
+
+#search {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#search input {
+    height: 40px;
+    width: 190px;
+}
+
+#weather-details {
+    padding-top: 50px;
+}
+
+/* Sets image size for Screen same or below 1200 pixels */
+@media screen and (max-width: 1000px) {
+    #search input {
+        width: 130px;
+    }
+}
