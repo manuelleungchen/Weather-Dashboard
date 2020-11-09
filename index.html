@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- Page Title -->
-    <title></title>
+    <title>Weather Dashboard</title>
 
     <!-- Reset CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -27,102 +27,59 @@
 
 <body>
     <header class="bg-dark">
-        <!-- <nav class="navbar navbar-dark bg-dark"> -->
         <h1>Weather Dashboard</h1>
-        <!-- </nav> -->
     </header>
 
     <main class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-sm-12 col-md-3 col-lg-3">
                 <aside>
-                    <div id="search">
-                        <input type="text" list="datalist" placeholder="Search for City">
+                    <div id="search-area">
+                        <input type="text" list="datalist" id="search-input" placeholder="Search for City">
+                        <button id="search-button"><i class="fas fa-search"></i></button>
                         <datalist id="datalist"></datalist>
                     </div>
-                    <div class="card">
-                        <div class="card-header">
-                            Cities History
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Toronto</li>
-                            <li class="list-group-item">chicago</li>
-                            <li class="list-group-item">montreal</li>
-                            <li class="list-group-item">Toronto</li>
-                            <li class="list-group-item">chicago</li>
-                            <li class="list-group-item">montreal</li>
-                            <li class="list-group-item">Toronto</li>
-                            <li class="list-group-item">chicago</li>
-                            <li class="list-group-item">montreal</li>
-                            <li class="list-group-item">Toronto</li>
-                            <li class="list-group-item">chicago</li>
-                            <li class="list-group-item">montreal</li>
-                        </ul>
+                    <div class="history-area">
+                        <h3>History</h3>
+                        <ul class="list-group" id="saved-cities"></ul>
                     </div>
                 </aside>
             </div>
-            <div class="col-9">
+            <div class="col-sm-12 col-md-9 col-lg-9">
                 <article>
                     <section class="row" id="today-weather-section">
-                        <div class="col-6">
-                            <h2>Toronto (Date)</h2>
-                            <img src="http://openweathermap.org/img/wn/09d@4x.png" id="today-weather-img" alt="...">
+                        <div class="col-sm-12 col-sm-6 col-lg-6" id="city-name">
                         </div>
-                        <div class="col-6" id="weather-details">
-                            <h5>Temperature: 20C </h5>
-                            <h5>Humidity: 393 </h5>
-                            <h5>Wind Speed: 100 KM/h</h5>
-                            <h5>UV Index: 93k</h5>
+                        <div class="col-sm-12 col-md-6 col-lg-6" id="weather-details">
                         </div>
                     </section>
 
-                    <section class="row justify-content-center">
-                        <div class="col-12">
-                            <h2 id="forecast-header">Forecast</h2>
-                        </div>
-                        <div class="card col-2">
-                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
-                            <div>
-                                <h5 class="card-title">Monday</h5>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
-                            </div>
-                        </div>
-                        <div class="card col-2">
-                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
-                            <div>
-                                <h5 class="card-title">Monday</h5>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
-                            </div>
-                        </div>
-                        <div class="card col-2">
-                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
-                            <div>
-                                <h5 class="card-title">Monday</h5>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
-                            </div>
-                        </div>
-                        <div class="card col-2">
-                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
-                            <div>
-                                <h5 class="card-title">Monday</h5>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
-                            </div>
-                        </div>
-                        <div class="card col-2">
-                            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
-                            <div>
-                                <h5 class="card-title">Monday</h5>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
-                            </div>
-                        </div>
+                    <section class="row" id="forecast-section">
 
                     </section>
                 </article>
+            </div>
+        </div>
+
+        <!-- Trigger the modal with a button -->
+        <button type="button" style="display: none;" id="alert-button" data-toggle="modal"
+            data-target="#myModal"></button>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Error: City not Found!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please enter a valid city name</p>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
