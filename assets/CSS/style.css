@@ -5,31 +5,12 @@
   box-sizing: border-box;
 }
 
+/* Add background color */
 body {
     background-color: lightcyan;
 }
-.container {
-    margin-top: 20px;
-}
 
-aside {
-    background-color: lightsteelblue;
-    padding: 10px;
-    margin: 0px;
-    border-radius: 15px;
-}
-
-article {
-    background-color: lightblue;
-    padding: 10px;
-    margin: 0px;
-    border-radius: 15px;
-}
-
-section {
-    padding: 20px;
-}
-
+/* Style the font size, color and padding of the header */
 header {
     font-size: 50px;
     padding: 20px;
@@ -37,18 +18,46 @@ header {
     text-align: center;
 }
 
+/* Set padding on the main container */
+.container {
+    margin-top: 20px;
+}
+
+/* Style the left side aside */
+aside {
+    background-color: lightsteelblue;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 15px;
+}
+
+/* Style the main article area */
+article {
+    background-color: lightblue;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 15px;
+}
+
+/* Add padding to all section inside the article */
+section {
+    padding: 20px;
+}
+
+/* Add padding on the search area */
 #search-area {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
+/* Set size and border radius for Searchbar */
 #search-input {
     border-radius: 5px;
     height: 40px;
-    /* width: 190px; */
     width: 80%;
 }
 
+/* Set size and border radius for Search button */
 #search-button {
     background-color: lightgrey;
     border-radius: 5px;
@@ -56,15 +65,18 @@ header {
     width:  40px;
 }
 
+/* Add padding on current weather details area */
 #weather-details {
     padding-top: 50px;
 }
 
+/* Add space around each forecast column */
 #forecast-section {
     display: flex;
     justify-content: space-around;
 }
 
+/* Style temperature element */
 #temperature {
     background-color: lightsalmon;
     color: linen;
@@ -73,45 +85,48 @@ header {
     padding: 10px;
 }
 
+/* Style humidity element */
 #humidity {
     background-color: lightskyblue;
     color: linen;
     width: 70%;
     border-radius: 25px;
     padding: 10px;
-
 }
+
+/* Style wind speed element */
 #wind-speed {
     background-color: whitesmoke;
     color: slategray;
     width: 70%;
     border-radius: 25px;
     padding: 10px;
-
 }
     
+/* Style feels like element */
 #feels-like {
     background-color: lightsalmon;
     color: linen;
     width: 70%;
     border-radius: 25px;
     padding: 10px;
-
 }
 
+/* Style UV index element */
 #uv-index {
     background-color: darkred;
     color: linen;
     width: 70%;
     border-radius: 25px;
-    padding: 10px;
-
-                
+    padding: 10px;          
 }
 
+/* Style FC Date element */
 #fc-title {
     text-align: center;
 }
+
+/* Style FC Temperature element */
 #fc-temperature {
     background-color: lightsalmon;
     color: linen;
@@ -120,6 +135,7 @@ header {
     padding: 10px;
 }
 
+/* Style FC humidity element */
 #fc-humidity {
     background-color: lightskyblue;
     color: linen;
@@ -129,19 +145,19 @@ header {
 
 }
 
+/* Set font size of all p tag  */
 p {
     font-size: 13px;
 }
 
-/* Sets image size for Screen same or below 1200 pixels */
+/* Sets Searchbar size for Screen same or below 1200 pixels */
 @media screen and (max-width: 1200px) {
     #search-input {
         width: 75%;
     }
-    /* #search-button */
 }
 
-/* Sets image size for Screen same or below 1200 pixels */
+/* Sets Searchbar and search button size for Screen same or below 992 pixels */
 @media screen and (max-width: 992px) {
     #search-input {
         width: 100%;
@@ -151,12 +167,3 @@ p {
     }
 }
 
-/* @media screen and (max-width: 992px) {
-    #search-input {
-        width: 100%;
-    }
-    #search-button {
-        width: 100%;;
-    }
-
-} */
