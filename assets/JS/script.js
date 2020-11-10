@@ -116,7 +116,9 @@ $(document).ready(function () {
 
 
     function loadSearchHistory() {
-        for (var counter = 0; counter < citiesChecked.length; counter++) {
+        // for (var counter = citiesChecked.length -1; counter >= 0; counter--) {
+
+            for (var counter = citiesChecked.length -1; counter >= 0; counter--) {
             var listItemEl = document.createElement("li");
             listItemEl.classList.add("list-group-item");
             listItemEl.textContent = citiesChecked[counter];
@@ -139,23 +141,63 @@ $(document).ready(function () {
     }
 
     function getWeather() {
+        if ($(this).siblings("#search-input").val() === "" )
+        {
+            return;
+        }
+
+
         var city = $(this).siblings("#search-input").val().toUpperCase();
         // Update current and history on local storage
 
         if (citiesChecked.indexOf(city) === -1) {
+
+            // if is the list limit have been reach
+            // remove the first element on list 
+            // also removed first child history section
+
+            // console.log(citiesChecked);
+            // debugger;
+            
             citiesChecked.push(city);
 
-            var listItemEl = document.createElement("li");
-            listItemEl.classList.add("list-group-item");
-            listItemEl.textContent = city;
-            savedCities.appendChild(listItemEl);
+            if (citiesChecked.length > 8) {
+                // citiesChecked.shift();
+                savedCities.removeChild(savedCities.lastElementChild);
+                citiesChecked.shift();
+
+            }
+
+            // console.log(citiesChecked);
+
+
+            // var listItemEl = $("<li>");
+            // listItemEl.addClass("list-group-item");
+            // listItemEl.text(city);
+            // $("#saved-cities").prepend(listItemEl);
+            var listItemEl2 = document.createElement("li");
+            listItemEl2.classList.add("list-group-item");
+            listItemEl2.textContent = city;
+            $("#saved-cities").prepend(listItemEl2)
+            // savedCities.prepend(listItemEl);
+
+            // for (var i = 0; i < citiesChecked.length; i++) {
+            //     savedCities.removeChild(savedCities.lastElementChild);
+            // }
+
+            // $(".list-group-item").detach();
+
+            
+            // loadSearchHistory();
 
             localStorage.setItem("searchHistory", JSON.stringify(citiesChecked));
+
+            
 
         }
         localStorage.setItem("lastCiyChecked", city);
 
-
+    
         // Clear Any previuos created HTML Elements
 
         $("#city-name").empty();
@@ -318,17 +360,17 @@ $(document).ready(function () {
             })
     }
 
-    function triggerSearchButtonPress(newInput) {
+    function triggerSearchButtonPress() {
 
         var newInput = $(this).text();
         $("#search-input").val(newInput);
         $("#search-button").click();
+        
     }
 
 
     $("#search-input").on("keyup", autoComplete);
     $("#search-button").on("click", getWeather);
-    $(".list-group-item").on("click", triggerSearchButtonPress);
-
+    $(document).on('click','.list-group-item', triggerSearchButtonPress);
 
 })
